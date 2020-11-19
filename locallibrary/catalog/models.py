@@ -10,9 +10,7 @@ class Genre(models.Model):
     def __str__(self):
         """String for representing the Model object."""
         return self.name
-
-    
-
+   
 class Book(models.Model):
     """Model representing a book (but not a specific copy of a book)."""
     title = models.CharField(max_length=200)
@@ -29,7 +27,12 @@ class Book(models.Model):
     # ManyToManyField used because genre can contain many books. Books can cover many genres.
     # Genre class has already been defined so we can specify the object above.
     genre = models.ManyToManyField(Genre, help_text='Select a genre for this book')
+    def display_genre(self):
+        """Create a string for the Genre. This is required to display genre in Admin."""
+        return ': '.join(genre.name for genre in self.genre.all()[:3])
     
+    display_genre.short_description = 'Genre5'
+
     def __str__(self):
         """String for representing the Model object."""
         return self.title
@@ -37,9 +40,6 @@ class Book(models.Model):
     def get_absolute_url(self):
         """Returns the url to access a detail record for this book."""
         return reverse('book-detail', args=[str(self.id)])
-
-
-
 
 class BookInstance(models.Model):
     """Model representing a specific copy of a book (i.e. that can be borrowed from the library)."""
