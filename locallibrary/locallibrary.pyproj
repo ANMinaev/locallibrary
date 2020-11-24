@@ -47,12 +47,16 @@
     <Compile Include="locallibrary\wsgi.py" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="catalog\templates\catalog\index.html" />
+    <Content Include="catalog\static\css\styles.css" />
+    <Content Include="catalog\templates\index.html" />
+    <Content Include="catalog\templates\base_generic.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="catalog\" />
     <Folder Include="catalog\migrations\" />
+    <Folder Include="catalog\static\" />
+    <Folder Include="catalog\static\css\" />
     <Folder Include="catalog\templates\" />
     <Folder Include="catalog\templates\catalog\" />
     <Folder Include="locallibrary\" />
