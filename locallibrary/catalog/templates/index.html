@@ -15,5 +15,7 @@
     <li><strong>Copies available:</strong> {{ num_instances_available }}</li>
     <li><strong>Authors:</strong> {{ num_authors }}</li>
     <li><strong>Genre roman:</strong> {{ num_genre }}</li>
+    <li><strong>Visits:</strong> {{ num_visits }}</li>
   </ul>
+<p>You have visited this page {{ num_visits }} time{% if num_visits > 1 %}s{% endif %}.</p>
 {% endblock %}
